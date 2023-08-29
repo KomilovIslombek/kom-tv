@@ -110,9 +110,9 @@ var lastScrollTop = 0;
 window.addEventListener("scroll", function() {
   var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-  if (scrollTop > lastScrollTop) {
+  if (scrollTop > lastScrollTop && window.innerWidth > 960) {
     header.parentNode.classList.add("hide");
-  } else {
+  } else if(window.innerWidth > 960) {
     header.parentNode.classList.remove("hide");
   }
 

@@ -134,11 +134,10 @@ $grid-sides: 12px;
                 a{
                     font-size: 16px;
                     line-height: 20px;
-                    letter-spacing: 1px;
                     color: inherit;
                 }
                 @include media-max(960px) {
-                    a{text-transform: uppercase;}
+                    a{text-transform: uppercase;letter-spacing: 1px;}
                     &::after{
                         content: "";
                         position: absolute;
@@ -157,7 +156,6 @@ $grid-sides: 12px;
                 @include media-min(960px) {
                     a{
                         font-size: 16px;
-                        line-height: 24px;
                         line-height: 24px;
                         transition: color .1s;
                         text-decoration: none;
