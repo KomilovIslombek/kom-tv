@@ -1,0 +1,109 @@
+@mixin line {
+    @content;
+    width: 50px;
+    height: 4px;
+}
+
+@mixin hover-color {
+    &:hover{
+        color: $hover-color;
+        .hover-svg {
+            stroke: $hover-color;
+        }
+        .hover-path{
+            fill: $hover-color;
+        }
+    }
+}
+
+@mixin hover-background {
+    &:hover{
+        background-color: rgba(255,255,255,.1);
+    }
+}
+
+// Миксин для медиа-запросов
+@mixin media-min($breakpoint) {
+    @media screen and (min-width: $breakpoint) {
+        @content;
+    }
+}
+@mixin media-max($breakpoint) {
+    @media screen and (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+// Flex mixins
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-inline {
+    display: flex;
+    display: -ms-flexbox;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+@mixin flex-justify-center {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+// Bakcground mixin
+
+@mixin back-img {
+    @content;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+// Media querys
+
+
+@mixin min-1320{
+    @media (min-width: 1320px) { @content; }
+}
+
+@mixin min-960{
+    @media (min-width: 960px) { @content; } 
+}
+
+@mixin min-600{
+    @media (min-width: 600px) { @content; }
+}
+
+@mixin min-375{
+    @media (min-width: 375px) { @content; }
+}
+
+
+@mixin max-tablet-center-phone{
+    @media (max-width: 635px) { @content; }
+}
+
+@mixin max-tablet-mini-phone{
+    @media (max-width: 550px) { @content; }
+}
+
+@mixin max-tablet{
+    @media (max-width: 770px) { @content; }
+}
+
+@mixin max-phone{
+    @media (max-width: 400px) { @content; }
+}

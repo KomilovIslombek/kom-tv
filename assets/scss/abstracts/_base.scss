@@ -1,0 +1,50 @@
+body {
+    font-family: "OKKO Sans Regular",sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255,255,255,.96);
+    text-align: left;
+    background-color: #000;
+    position: relative
+}
+i.none{
+    display: none;
+}
+.none{
+    display: none !important;
+}
+.body-active{
+    overflow: hidden;
+    height: 100%;
+}
+
+[data-animation-top="true"] {
+    transform: translateY(-1000px) !important;
+    
+    // transition: transform .5 ease-in-out;
+}
+
+[data-animation-top="false"] {
+    transform: translateY(0) !important;
+    transition: transform .5s ease;
+}
+
+[data-animation-top="false"].acter,
+[data-animation-top="false"].film__title-acters {
+    transform: translateY(0) !important;
+    transition: transform .4s ease;
+}
+
+
+
+[data-animation-top="false"].film__title-acters
+{
+    // transition: transform 0.4s ease !important;
+    transition: transform .4s ease !important;
+}
+
+[data-animation-top="false"].film__title:not(.film__title-acters)
+{
+    transition: transform .6s ease !important;
+}
