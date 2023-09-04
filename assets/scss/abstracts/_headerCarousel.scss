@@ -1,0 +1,128 @@
+.wrapper-carousel {
+    /* max-width: 1100px; */
+    width: 100%;
+    position: relative;
+    padding: 20px 0;
+    @include media-min(375px) {padding: 24px 0;}
+    @include media-min(600px) {padding: 32px 0;}
+    @include media-min(1320px) {padding: 48px 0;}
+    // Carousel start
+    .carousel{
+        display: grid;
+        grid-auto-flow: column;
+        /* grid-auto-columns: calc((100% / 3) - 12px); */
+        /* grid-auto-columns: calc((100vw - 16px) / 1.70); */
+        /* grid-auto-columns: calc((100vw - 12px)); */
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        border-radius: 8px;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        &.no-transition {
+            scroll-behavior: auto;
+        }
+
+        &.dragging {
+            scroll-snap-type: none;
+            scroll-behavior: auto;
+        }
+        &.dragging .card {
+            cursor: grab;
+            user-select: none;
+        }
+        // Carousel card start
+        & :where(.card, .img) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            scroll-snap-align: center;
+            height: 342px;
+            list-style: none;
+            background: #fff;
+            cursor: pointer;
+            padding-bottom: 15px;
+            flex-direction: column;
+            border-radius: 8px;
+            min-width: calc((100vw - 16px) / 1.60);
+            /* width: calc((100vw - 12px) / 1.33); */
+            margin: 0 calc(16px / 2);
+        }
+        .card .img {
+            background: #8B53FF;
+            height: 148px;
+            width: 148px;
+            border-radius: 50%;
+        }
+        .card .img img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+        }
+        .card h2 {
+            font-weight: 500;
+            font-size: 1.56rem;
+            margin: 30px 0 5px;
+        }
+        .card span {
+            color: #6A6D78;
+            font-size: 1.31rem;
+        }
+        @include media-max(600px){
+            .card{
+                min-width: 100vw;
+                scroll-snap-align: start;
+            }
+        }
+    }
+
+    i {
+        top: 50%;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+        font-size: 1.25rem;
+        position: absolute;
+        text-align: center;
+        line-height: 50px;
+        // background: #fff;
+        backdrop-filter: blur(13px);
+        background-image: linear-gradient(rgba(255,255,255,.15),rgba(255,255,255,.15)),linear-gradient(rgba(59,58,62,.1),rgba(59,58,62,.1));
+        color: #000;
+        border-radius: 50%;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+        transform: translateY(-50%);
+        transition: transform 0.1s linear;
+        z-index: 3;
+
+        &:first-child{
+            left: 22px;
+        }
+        &:last-child{
+            right: 22px;
+        }
+
+        &:active {
+            transform: translateY(-50%) scale(0.85);
+        }
+
+        @include media-max(600px) {
+            display: none;
+        }
+    }
+}
+
+// @media screen and (max-width: 600px) {
+//   .carousel .card{
+//     min-width: 100vw;
+//     scroll-snap-align: start;
+//   }
+  
+// }
