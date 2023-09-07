@@ -85,11 +85,59 @@ const autoPlay = () => {
     // Autoplay the carousel after every 2500 ms
     timeoutId = setTimeout(() => carousel.scrollLeft += firstCardWidth, 2500);
 }
-autoPlay();
+// autoPlay();
 
 carousel.addEventListener("mousedown", dragStart);
 carousel.addEventListener("mousemove", dragging);
 document.addEventListener("mouseup", dragStop);
 carousel.addEventListener("scroll", infiniteScroll);
 wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
-wrapper.addEventListener("mouseleave", autoPlay);
+// wrapper.addEventListener("mouseleave", autoPlay);
+
+
+
+
+// Start card video player
+const videoCards = document.querySelectorAll('.card__inner');
+videoCards.forEach(videoCard => {
+    const thumbnailContainer = videoCard.querySelector('.card__picture');
+    const thumbnailContainerImg = videoCard.querySelector('.card__picture img');
+    const video = videoCard.querySelector('.card__video .video');
+    const volumeToggle = videoCard.querySelector('.card__video .volume-toggle');
+
+    videoCard.style.height = thumbnailContainerImg.height + "px";
+
+    // start
+    let attrHref;
+    volumeToggle.addEventListener('click', e => {
+      e.preventDefault();
+    
+      if (video.muted) {
+        video.muted = false;
+        volumeToggle.classList.remove('volume-muted');
+        volumeToggle.querySelector("i").classList.remove("fa-volume-xmark")
+        volumeToggle.querySelector("i").classList.add("fa-volume-high")
+      } else {
+        video.muted = true;
+        volumeToggle.classList.add('volume-muted');
+        volumeToggle.querySelector("i").classList.add("fa-volume-xmark")
+        volumeToggle.querySelector("i").classList.remove("fa-volume-high")
+      }
+    
+    });
+
+    videoCard.addEventListener('mouseenter', () => {
+        videoCard.classList.add('playing');
+        // thumbnailContainer.style.display = 'none';
+        // video.style.display = 'block';
+        video.play();
+    });
+
+    videoCard.addEventListener('mouseleave', () => {
+        // videoCard.classList.remove('playing');
+        // thumbnailContainer.style.display = 'block';
+        // video.style.display = 'none';
+        // video.currentTime = 0;
+        video.pause();
+    });
+});
