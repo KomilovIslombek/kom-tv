@@ -105,7 +105,7 @@ videoCards.forEach(videoCard => {
     const video = videoCard.querySelector('.card__video .video');
     const volumeToggle = videoCard.querySelector('.card__video .volume-toggle');
 
-    videoCard.style.height = thumbnailContainerImg.height + "px";
+    // videoCard.style.height = thumbnailContainerImg.height + "px";
 
     // start
     let attrHref;
