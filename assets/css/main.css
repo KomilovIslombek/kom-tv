@@ -280,7 +280,7 @@ i.none {
   align-items: center;
 }
 .wrapper-carousel .carousel .card {
-  scroll-snap-align: start;
+  scroll-snap-align: center;
   list-style: none;
   background: #fff;
   cursor: pointer;
