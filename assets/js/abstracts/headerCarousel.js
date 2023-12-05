@@ -38,6 +38,35 @@ arrowBtns.forEach(btn => {
     });
 });
 
+// Функция для определения слайдера по центру
+const findCenterSlide = () => {
+    const scrollCenter = carousel.scrollLeft + carousel.offsetWidth / 2; // Центральная точка прокрутки
+    let closestSlide = null;
+    let closestDistance = Infinity;
+
+    carouselChildrens.forEach(slide => {
+        const slideLeft = slide.offsetLeft;
+        const slideWidth = slide.offsetWidth;
+        const slideCenter = slideLeft + slideWidth / 2;
+
+        const distanceToCenter = Math.abs(scrollCenter - slideCenter);
+        if (distanceToCenter < closestDistance) {
+            closestDistance = distanceToCenter;
+            closestSlide = slide;
+        }
+    });
+
+    return closestSlide;
+};
+
+// Вызов функции для инициализации слайдера по центру при загрузке страницы
+// console.log(findCenterSlide());
+// let centerSlide = findCenterSlide();
+// console.log(centerSlide.classList);
+// centerSlide.classList.add('playing');
+// const centerSlideVideo = centerSlide.querySelector('.card__video .video');
+// centerSlideVideo.play();
+
 const dragStart = (e) => {
     isDragging = true;
     carousel.classList.add("dragging");
@@ -131,6 +160,7 @@ videoCards.forEach(videoCard => {
         // thumbnailContainer.style.display = 'none';
         // video.style.display = 'block';
         video.play();
+        console.log("hello hover");
     });
 
     videoCard.addEventListener('mouseleave', () => {
