@@ -123,7 +123,15 @@ carousel.addEventListener("scroll", infiniteScroll);
 wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
 // wrapper.addEventListener("mouseleave", autoPlay);
 
-
+// Mobile version swiping slowly to finger 
+carousel.addEventListener('touchmove', (event) => {
+    // Уменьшение скорости прокрутки при движении пальцем на карусели
+    event.stopPropagation();
+    event.preventDefault();
+    const touch = event.targetTouches[0];
+    const offsetX = touch.clientX - touch.target.getBoundingClientRect().left;
+    carousel.scrollLeft -= offsetX / 10; // Измените значение для регулировки скорости
+});
 
 
 // Start card video player
