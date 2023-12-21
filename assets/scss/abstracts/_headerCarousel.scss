@@ -37,16 +37,19 @@ $content-padding: 40px;
         scrollbar-width: none;
 
         &::-webkit-scrollbar {
-            // display: none;
+            display: none;
         }
 
         &.no-transition {
-            scroll-behavior: auto;
+            // scroll-behavior: auto;
+            scroll-behavior: smooth !important;
         }
 
         &.dragging {
-            scroll-snap-type: none;
-            scroll-behavior: auto;
+            // scroll-snap-type: none;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            // scroll-behavior: auto;
         }
 
         &.dragging .card {
@@ -63,6 +66,7 @@ $content-padding: 40px;
 
         .card {
             scroll-snap-align: center;
+            scroll-snap-stop: always;
             // scroll-snap-align: start;
             // height: 480px;
             // height: auto;
@@ -112,6 +116,7 @@ $content-padding: 40px;
             .card {
                 min-width: 100vw;
                 scroll-snap-align: start !important;
+                scroll-snap-stop: always;
             }
         }
 

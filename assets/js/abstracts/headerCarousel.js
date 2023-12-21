@@ -109,7 +109,6 @@ const infiniteScroll = () => {
         // carousel.scrollLeft = firstCardWidth / 1.40;
         carousel.classList.remove("no-transition");
         console.log("work end");
-        console.log(firstCardWidth / 1.40);
     }
 
     // Clear existing timeout & start autoplay if mouse is not hovering over carousel

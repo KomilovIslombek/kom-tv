@@ -258,12 +258,15 @@ i.none {
   scroll-behavior: smooth !important;
   scrollbar-width: none;
 }
+.wrapper-carousel .carousel::-webkit-scrollbar {
+  display: none;
+}
 .wrapper-carousel .carousel.no-transition {
-  scroll-behavior: auto;
+  scroll-behavior: smooth !important;
 }
 .wrapper-carousel .carousel.dragging {
-  scroll-snap-type: none;
-  scroll-behavior: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
 }
 .wrapper-carousel .carousel.dragging .card {
   cursor: grab;
@@ -278,6 +281,7 @@ i.none {
 }
 .wrapper-carousel .carousel .card {
   scroll-snap-align: center;
+  scroll-snap-stop: always;
   list-style: none;
   background: #fff;
   cursor: pointer;
@@ -318,6 +322,7 @@ i.none {
   .wrapper-carousel .carousel .card {
     min-width: 100vw;
     scroll-snap-align: start !important;
+    scroll-snap-stop: always;
   }
 }
 .wrapper-carousel:hover i#left,
