@@ -255,11 +255,8 @@ i.none {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   border-radius: 8px;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
   scrollbar-width: none;
-}
-.wrapper-carousel .carousel::-webkit-scrollbar {
-  display: none;
 }
 .wrapper-carousel .carousel.no-transition {
   scroll-behavior: auto;
@@ -320,7 +317,7 @@ i.none {
 @media screen and (max-width: 600px) {
   .wrapper-carousel .carousel .card {
     min-width: 100vw;
-    scroll-snap-align: start;
+    scroll-snap-align: start !important;
   }
 }
 .wrapper-carousel:hover i#left,

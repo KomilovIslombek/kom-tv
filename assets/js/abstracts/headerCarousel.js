@@ -86,11 +86,18 @@ const dragStop = () => {
     carousel.classList.remove("dragging");
 }
 
+let isMobile = window.matchMedia("(max-width: 768px)").matches; // Проверяем, является ли устройство мобильным
+
 const infiniteScroll = () => {
+    // if(isMobile) {
+    //     console.log("скролится", Math.round(carousel.scrollLeft / firstCardWidth) * firstCardWidth);
+    //     carousel.scrollLeft = Math.round(carousel.scrollLeft / firstCardWidth) * firstCardWidth;
+    // }
     // If the carousel is at the beginning, scroll to the end
     if(carousel.scrollLeft === 0) {
         carousel.classList.add("no-transition");
-        carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth);
+        carousel.scrollLeft = 0;
+        // carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth);
         carousel.classList.remove("no-transition");
         console.log("work start");
     }
@@ -98,7 +105,8 @@ const infiniteScroll = () => {
     else if(Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth) {
         carousel.classList.add("no-transition");
         // carousel.scrollLeft = carousel.offsetWidth;
-        carousel.scrollLeft = firstCardWidth / 1.40;
+        carousel.scrollLeft = carousel.scrollLeft;
+        // carousel.scrollLeft = firstCardWidth / 1.40;
         carousel.classList.remove("no-transition");
         console.log("work end");
         console.log(firstCardWidth / 1.40);

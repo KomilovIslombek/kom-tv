@@ -33,11 +33,11 @@ $content-padding: 40px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         border-radius: 8px;
-        scroll-behavior: smooth;
+        scroll-behavior: smooth !important;
         scrollbar-width: none;
 
         &::-webkit-scrollbar {
-            display: none;
+            // display: none;
         }
 
         &.no-transition {
@@ -111,7 +111,7 @@ $content-padding: 40px;
         @include media-max(600px) {
             .card {
                 min-width: 100vw;
-                scroll-snap-align: start;
+                scroll-snap-align: start !important;
             }
         }
 
