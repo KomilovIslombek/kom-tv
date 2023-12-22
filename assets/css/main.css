@@ -255,18 +255,18 @@ i.none {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   border-radius: 8px;
-  scroll-behavior: smooth !important;
+  scroll-behavior: smooth;
   scrollbar-width: none;
 }
 .wrapper-carousel .carousel::-webkit-scrollbar {
   display: none;
 }
 .wrapper-carousel .carousel.no-transition {
-  scroll-behavior: smooth !important;
+  scroll-behavior: auto;
 }
 .wrapper-carousel .carousel.dragging {
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
 }
 .wrapper-carousel .carousel.dragging .card {
   cursor: grab;
@@ -281,7 +281,6 @@ i.none {
 }
 .wrapper-carousel .carousel .card {
   scroll-snap-align: center;
-  scroll-snap-stop: always;
   list-style: none;
   background: #fff;
   cursor: pointer;
@@ -321,7 +320,7 @@ i.none {
 @media screen and (max-width: 600px) {
   .wrapper-carousel .carousel .card {
     min-width: 100vw;
-    scroll-snap-align: start !important;
+    scroll-snap-align: start;
     scroll-snap-stop: always;
   }
 }

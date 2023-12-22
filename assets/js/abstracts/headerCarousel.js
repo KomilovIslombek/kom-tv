@@ -27,7 +27,6 @@ carouselChildrens.slice(0, cardPerView).forEach(card => {
 carousel.classList.add("no-transition");
 // carousel.scrollLeft = carousel.offsetWidth;
 carousel.scrollLeft = firstCardWidth / 1.40;
-console.log(firstCardWidth / 1.40);
 carousel.classList.remove("no-transition");
 
 // Add event listeners for the arrow buttons to scroll the carousel left and right
@@ -89,10 +88,6 @@ const dragStop = () => {
 let isMobile = window.matchMedia("(max-width: 768px)").matches; // Проверяем, является ли устройство мобильным
 
 const infiniteScroll = () => {
-    // if(isMobile) {
-    //     console.log("скролится", Math.round(carousel.scrollLeft / firstCardWidth) * firstCardWidth);
-    //     carousel.scrollLeft = Math.round(carousel.scrollLeft / firstCardWidth) * firstCardWidth;
-    // }
     // If the carousel is at the beginning, scroll to the end
     if(carousel.scrollLeft === 0) {
         carousel.classList.add("no-transition");
@@ -121,7 +116,6 @@ const autoPlay = () => {
     // Autoplay the carousel after every 2500 ms
     timeoutId = setTimeout(() => carousel.scrollLeft += firstCardWidth, 2500);
 }
-// autoPlay();
 
 carousel.addEventListener("mousedown", dragStart);
 carousel.addEventListener("mousemove", dragging);
