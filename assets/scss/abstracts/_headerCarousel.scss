@@ -33,7 +33,7 @@ $content-padding: 40px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         border-radius: 8px;
-        scroll-behavior: smooth;
+        scroll-behavior: smooth !important;
         scrollbar-width: none;
 
         &::-webkit-scrollbar {
@@ -41,13 +41,15 @@ $content-padding: 40px;
         }
 
         &.no-transition {
-            scroll-behavior: auto;
-            // scroll-behavior: smooth !important;
+            // scroll-behavior: auto;
+            scroll-behavior: smooth !important;
         }
 
         &.dragging {
-            scroll-snap-type: none;
-            scroll-behavior: auto;
+            // scroll-snap-type: none;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            // scroll-behavior: auto;
         }
 
         &.dragging .card {
@@ -66,7 +68,7 @@ $content-padding: 40px;
             scroll-snap-align: center;
             // height: 480px;
             list-style: none;
-            background: #fff;
+            // background: #fff;
             cursor: pointer;
             flex-direction: column;
             border-radius: 12px;
