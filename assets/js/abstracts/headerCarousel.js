@@ -4,10 +4,17 @@ let firstCardWidth = carousel.querySelector(".card").offsetWidth + 16;
 const arrowBtns = document.querySelectorAll(".wrapper-carousel i");
 const carouselChildrens = [...carousel.children];
 
+let isMobile = window.matchMedia("(max-width: 768px)").matches; // Проверяем, является ли устройство мобильным
+console.log('isMobile', isMobile);
+
 window.addEventListener("resize", () => {
     firstCardWidth = carousel.querySelector(".card").offsetWidth + 16;
+    isMobile = window.matchMedia("(max-width: 768px)").matches;
 })
 
+// if(!isMobile) {
+    
+// }   
 let isDragging = false, isAutoPlay = true, startX, startScrollLeft, timeoutId;
 
 // Get the number of cards that can fit in the carousel at once
@@ -84,8 +91,6 @@ const dragStop = () => {
     isDragging = false;
     carousel.classList.remove("dragging");
 }
-
-let isMobile = window.matchMedia("(max-width: 768px)").matches; // Проверяем, является ли устройство мобильным
 
 const infiniteScroll = () => {
     // If the carousel is at the beginning, scroll to the end
